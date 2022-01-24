@@ -1,12 +1,9 @@
 package cbse.epms.client;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import cbse.epms.bean.Employee;
 import cbse.epms.bean.EmployeeManagement;
 import cbse.epms.bean.PaymentManagement;
 
@@ -58,7 +55,7 @@ public class AdminUIClient {
             System.out.println("\n-------------------------------------------EMPLOYEE MANAGEMENT--------------------------------------------");
             System.out.println("(1) Get List of Employees            (2) Display Employees' Attendance    (3) Get Specific Employee Detail");
             System.out.println("(4) Add a New Employee               (5) Edit an Employee                 (6) Delete an Employee");
-            System.out.println("(7) Get Specific Employee Attendance (8) Mark an Employee's Attendance    (0) Exit");
+            System.out.println("(7) Get Specific Employee Attendance (8) Mark Employee Attendance         (0) Exit");
             eMInput = sc.nextInt();
             if(eMInput == 0){
                 break;
@@ -146,7 +143,6 @@ public class AdminUIClient {
 
     public static void selectEmployeeToPay(){
     	pM.executePayment();
-
     }
 
 }
