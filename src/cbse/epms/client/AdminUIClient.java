@@ -11,20 +11,20 @@ public class AdminUIClient {
 
     private static Integer menuInput;
     private static Scanner sc;
-    private static EmployeeManagement eM;
-    private static PaymentManagement pM;
+    private static EmployeeManagement eMBean;
+    private static PaymentManagement pMBean;
     
     public static void main(String[] args) {
         sc = new Scanner(System.in);
         ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
 
-        eM = (EmployeeManagement) context.getBean("employeeManagement");        
-		eM.initReadEmployeeFile();
-		eM.initReadAttendanceFile();
+        eMBean = (EmployeeManagement) context.getBean("employeeManagement");        
+		eMBean.initReadEmployeeFile();
+		eMBean.initReadAttendanceFile();
 		
-		pM = (PaymentManagement) context.getBean("paymentManagement");
-		pM.loadTransactionData();
-		pM.loadPayrollData();
+		pMBean = (PaymentManagement) context.getBean("paymentManagement");
+		pMBean.loadTransactionData();
+		pMBean.loadPayrollData();
 
         System.out.println("\n\nWelcome to the Payroll Management System");
 
@@ -94,55 +94,55 @@ public class AdminUIClient {
     }
 
     public static void displayAttendanceList(){
-		eM.getAttendanceList();
+		eMBean.getAttendanceList();
     }
 
     public static void displayEmployeeTransactionLogs(){
-    	pM.getEmployeeTransaction();
+    	pMBean.getEmployeeTransaction();
     }
 
     public static void displayEmployeeList(){
-    	eM.displayListOfEmployee();
+    	eMBean.displayListOfEmployee();
     }
 
     public static void displayEmployeeDetails(){
-		eM.displayEmployeeDetails();
+		eMBean.displayEmployeeDetails();
     }
 
     public static void createNewEmployee(){
-    	eM.addEmployee();
+    	eMBean.addEmployee();
     }
 
     public static void displayEmployeePayrolls(){
-    	pM.getEmployeePayrolls();
+    	pMBean.getEmployeePayrolls();
     }
 
     public static void selectEmployeeToViewAttendance(){
-    	eM.getAttendance();
+    	eMBean.getAttendance();
     }
 
     public static void selectEmployeeToMarkAttendance(){
-    	eM.markAttendance();
+    	eMBean.markAttendance();
     }
 
     public static void selectEmployeeToDelete(){
-		eM.deleteEmployee();
+		eMBean.deleteEmployee();
     }
 
     public static void selectEmployeeToEdit(){
-    	eM.setEmployee();
+    	eMBean.setEmployee();
     }  	
 
     public static void selectEmployeeToSetPayroll(){
-    	pM.setPayroll();
+    	pMBean.setPayroll();
     }
 
     public static void selectEmployeeToDeletePayroll(){
-    	pM.deletePayroll();
+    	pMBean.deletePayroll();
     }
 
     public static void selectEmployeeToPay(){
-    	pM.executePayment();
+    	pMBean.executePayment();
     }
 
 }
